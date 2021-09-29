@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:homepage/Utils/Constants.dart';
 import 'package:homepage/pages/Questions.dart';
@@ -5,18 +7,31 @@ import 'package:homepage/widgets/HomepageTabs/BookmarkedTab.dart';
 import './widgets/HomepageTabs/practiceTab.dart';
 import './pages/profile.dart';
 import './widgets/profileButton.dart';
+import 'Utils/fluro_router.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Fluro.setUpRouter();
+  }
+  @override
   Widget build(BuildContext context) {
+    log("in main");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Debuging',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -33,8 +48,8 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-      routes: {Constants.questionsRouteName:(context)=>Questions(),Constants.profileRouteName:(context)=>ProfilePage()},
+      initialRoute: '/',
+      onGenerateRoute: Fluro.router.generator,
     );
   }
 }

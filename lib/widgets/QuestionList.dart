@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:homepage/Utils/Constants.dart';
 import 'package:homepage/models/Question.dart';
 
 class QuestionList extends StatefulWidget {
   final List<Question> _questions;
-  final _button;
-  QuestionList(this._questions, this._button);
+  QuestionList(this._questions);
   @override
   _QuestionListState createState() => _QuestionListState();
 }
@@ -34,10 +34,10 @@ class _QuestionListState extends State<QuestionList>
             shape: Border(
                 left: BorderSide(
                     color:
-                        widget._questions[index].dificulty.compareTo('Hard') ==
+                        widget._questions[index].difficulty.compareTo('Hard') ==
                                 0
                             ? Colors.red
-                            : widget._questions[index].dificulty
+                            : widget._questions[index].difficulty
                                         .compareTo('Easy') ==
                                     0
                                 ? Colors.green[600]
@@ -64,7 +64,7 @@ class _QuestionListState extends State<QuestionList>
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Difficulty : ' + widget._questions[index].dificulty,
+                      Text('Difficulty : ' + widget._questions[index].difficulty,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontWeight: FontWeight.w100,
@@ -72,7 +72,7 @@ class _QuestionListState extends State<QuestionList>
                             color: Colors.grey,
                           )),
                       SizedBox(height: 10),
-                      Text('Score : ' + widget._questions[index].score,
+                      Text('Score : ' + widget._questions[index].score.toString(),
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               fontWeight: FontWeight.w100,
@@ -80,7 +80,20 @@ class _QuestionListState extends State<QuestionList>
                               color: Colors.grey))
                     ],
                   ),
-                  widget._button
+                  RaisedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        Constants.questionpage+'/'+widget._questions[index].id.toString(),
+                      );
+                    },
+                    color: Colors.blue[900],
+                    child: Text(
+                      'Solve',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: 20, color: Colors.white),
+                    ),
+                  )
                 ],
               ),
             ),

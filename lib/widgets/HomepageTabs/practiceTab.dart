@@ -10,15 +10,11 @@ import '../Footer.dart';
 class PracticeTab extends StatelessWidget {
   final List<Color> _colors = [Colors.lightBlue[500], Colors.lightBlue[900]];
   final List<double> _stops = [0.0, 0.9];
-  final List<Question> _questions = List<Question>();
   final List<Question> _recentQuestions = List<Question>();
 
   @override
   Widget build(BuildContext context) {
-    _recentQuestions.add(Question('Hard', 'algorithm', 'graph',
-        'Just Random Questions to test the list', '10'));
-    _recentQuestions.add(Question('Easy', 'algorithm', 'graph',
-        'Just Random Questions to test the list', '10'));
+
     return Column(
       children: <Widget>[
         SingleChildScrollView(
@@ -83,10 +79,9 @@ class PracticeTab extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pushNamed(
                                         context,
-                                        Constants.questionsRouteName,
-                                        arguments: QuestionsPageModel(
-                                            'http://google.com',
-                                            'Daily Questions'),
+                                        Constants.questionsRouteName+'/Daily_Questions',
+                                        arguments:
+                                            'Daily Questions',
                                       );
                                     },
                                     color: Colors.blue[900],
@@ -141,10 +136,8 @@ class PracticeTab extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pushNamed(
                                         context,
-                                        Constants.questionsRouteName,
-                                        arguments: QuestionsPageModel(
-                                            'http://google.com',
-                                            'Interview preparation'),
+                                        Constants.questionsRouteName+'/Interview_preparation',
+                                        arguments: 'Interview preparation',
                                       );
                                     },
                                     color: Colors.blue[900],
@@ -205,10 +198,8 @@ class PracticeTab extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pushNamed(
                                         context,
-                                        Constants.questionsRouteName,
-                                        arguments: QuestionsPageModel(
-                                            'http://google.com',
-                                            'Algorithm and Datastructure'),
+                                        Constants.questionsRouteName+'/Algorithm_and_Datastructure',
+                                        arguments:'Algorithm and Datastructure',
                                       );
                                     },
                                     color: Colors.blue[900],
@@ -263,9 +254,8 @@ class PracticeTab extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pushNamed(
                                         context,
-                                        Constants.questionsRouteName,
-                                        arguments: QuestionsPageModel(
-                                            'http://google.com', 'Language'),
+                                        Constants.questionsRouteName+'/Language',
+                                        arguments: 'Language',
                                       );
                                     },
                                     color: Colors.blue[900],

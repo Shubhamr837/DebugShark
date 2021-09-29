@@ -36,7 +36,7 @@ class RecentList extends StatelessWidget {
                               ),
                               Text(
                                   'Difficulty : ' +
-                                      element.dificulty,
+                                      element.difficulty,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w100,
@@ -44,7 +44,7 @@ class RecentList extends StatelessWidget {
                                     color: Colors.grey,
                                   )),
                               SizedBox(height: 10),
-                              Text('Score : ' + element.score,
+                              Text('Score : ' + element.score.toString(),
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       fontWeight: FontWeight.w100,

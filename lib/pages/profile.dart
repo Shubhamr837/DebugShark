@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/Myscores.dart';
+import 'package:homepage/widgets/MyScores.dart';
+
 import '../widgets/Footer.dart';
 import '../widgets/Submissions.dart';
 import '../widgets/EditProfile.dart';
